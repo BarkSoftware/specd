@@ -1,0 +1,30 @@
+defaults: &defaults
+  host: <%= ENV['HOST'] %>
+  github_client_id: <%= ENV['GITHUB_CLIENT_ID'] %>
+  github_client_secret: <%= ENV['GITHUB_CLIENT_SECRET'] %>
+  s3_bucket: <%= ENV['S3_BUCKET'] %>
+  aws:
+    region: <%= ENV['AWS_REGION'] %>
+    access_key_id: <%= ENV['AWS_ACCESS_KEY_ID'] %>
+    secret_access_key: <%= ENV['AWS_SECRET_ACCESS_KEY'] %>
+  column_types:
+    - issues_start_here: true
+      title: Parking Lot
+      closed: false
+    - title: To Do
+      closed: false
+      todo: true
+    - title: In Progress
+      in_progress: true
+      closed: false
+    - title: Completed
+      closed: true
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

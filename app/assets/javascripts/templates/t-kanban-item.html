@@ -1,0 +1,12 @@
+<div class="clearfix card-title">
+  <span>{{issue.github.title}}</span>
+</div>
+<div class="labels">
+  <span ng-if="issue.issue_type.toLowerCase() == 'spec'" class="label label-primary pull-right"><i class="fa fa-bullseye"></i> {{issue.issue_type}}</span>
+  <span ng-if="issue.issue_type.toLowerCase() == 'bug'" class="label label-danger pull-right"><i class="fa fa-bug"></i> {{issue.issue_type}}</span>
+  <span ng-if="issue.issue_type.toLowerCase() == 'question'" class="label label-success pull-right"><i class="fa fa-question"></i> {{issue.issue_type}}</span>
+</div>
+<img ng-if="issue.github.assignee" ng-src="{{issue.github.assignee.avatar_url}}" class="img-circle user-img assignee-thumbnail" />
+<div class="card-time">
+  <i class="fa fa-clock-o"></i> <span am-time-ago="issue.github.created_at"></span>
+</div>

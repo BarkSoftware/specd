@@ -1,0 +1,24 @@
+<div class="new-issue-form input-group input-group-sm">
+  <div class="input-group-btn btn-group-sm">
+    <button ng-class="['btn', button_class, 'dropdown-toggle']" data-toggle="dropdown">
+      <i ng-if="issue_type =='spec'" class="fa fa-bullseye"></i>
+      <i ng-if="issue_type =='bug'" class="fa fa-bug"></i>
+      <i ng-if="issue_type =='question'" class="fa fa-question"></i>
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      <li>
+      <a href="#" ng-click="issueTypeSpec()"><i class="fa fa-bullseye"></i> Spec</a>
+      </li>
+      <li>
+      <a href="#" ng-click="issueTypeBug()"><i class="fa fa-bug"></i> Bug</a>
+      </li>
+      <li>
+      <a href="#" ng-click="issueTypeQuestion()"><i class="fa fa-question"></i> Question</a>
+      </li>
+    </ul>
+  </div>
+  <form novalidate ng-submit="create()">
+    <input ng-model="issue.title" type="text" class="form-control input-sm" id="appendedInput" placeholder="New {{issue_type}}" />
+  </form>
+</div>

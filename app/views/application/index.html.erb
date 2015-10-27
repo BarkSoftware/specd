@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="specd" ng-strict-di>
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title><%= @title %></title>
+      <%= stylesheet_link_tag 'application', media: 'all' %>
+      <%= stylesheet_link_tag 'admin', media: 'all' %>
+      <link rel="shortcut icon" href="/favicon.ico">
+      <base href="/">
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  </head>
+<body class=" ">
+  <div ui-view class="container-fluid"></div>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+
+  <!-- Spec'd -->
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+  <%= javascript_include_tag 'application' %>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-sortable/0.13.3/sortable.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+require: rubocop-rspec
+
+AllCops:
+  Include:
+    - Gemfile
+    - Guardfile
+    - Rakefile
+    - config.ru
+  Exclude:
+    - bin/**/*
+    - db/**/*
+    - script/**/*
+    - vendor/**/*
+  RunRailsCops: true
+
+Style/Documentation:
+  Enabled: false
+
+RegexpLiteral:
+  MaxSlashes: 0
+  Exclude:
+    - Guardfile
+
+TrailingComma:
+  EnforcedStyleForMultiline: comma
+
+RSpec/DescribeClass:
+  Exclude:
+    - spec/requests/**
+    - spec/functional/**
+
+Style/EmptyLinesAroundModuleBody:
+  Enabled: false
+
+Style/EmptyLinesAroundClassBody:
+  Enabled: false
+
+Style/EmptyLinesAroundMethodBody:
+  Enabled: false
+
+Style/MethodDefParentheses:
+  EnforcedStyle: require_no_parentheses
+
+Style/GuardClause:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/WordArray:
+  MinSize: 3

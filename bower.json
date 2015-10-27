@@ -1,0 +1,24 @@
+{
+  "lib": {
+    "name": "Lib assets for Spec'd",
+    "dependencies": {
+    }
+  },
+  "vendor": {
+    "name": "vendor assets for Spec'd",
+    "dependencies": {
+      "angular": "1.4.5",
+      "bootstrap": "~3.3.1",
+      "angular-ui-router": "~0.2.11",
+      "typeahead.js": "~0.10.5",
+      "ng-tags-input": "2.1.1",
+      "angular-moment": "~0.9.0",
+      "ng-file-upload": "~3.2.4",
+      "angular-markdown-directive": "~0.3.1",
+      "angular-perfect-scrollbar": "~0.0.4"
+    },
+    "resolutions": {
+      "angular": "1.4.5"
+    }
+  }
+}

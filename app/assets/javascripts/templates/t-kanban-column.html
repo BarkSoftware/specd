@@ -1,0 +1,14 @@
+<perfect-scrollbar class="scroller" wheel-propagation="true" wheel-speed="5" min-scrollbar-length="20" suppress-scroll-x="true">
+<ul
+  ng-model="column.issues"
+  ui-sortable="sortableOptions"
+  class="sortable-list connectList ui-sortable kanban-list">
+    <li
+    ng-mouseup="viewIssue(i)"
+    ng-click="clickIssue()"
+    ng-repeat="i in column.issues"
+    ng-class="issueClass(i) + '-element' + ' card'">
+      <kanban-item issue="i"></kanban-item>
+    </li>
+  </ul>
+</perfect-scrollbar>

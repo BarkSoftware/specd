@@ -1,0 +1,46 @@
+<div ng-if="authenticated" class="row">
+  <div id="top-nav">
+    <span id="user-control" data-toggle="dropdown" class="pull-right dropdown dropdown-toggle">
+      <div class="dropdown-toggle" data-toggle="dropdown">
+        <img ng-src="{{user.image}}" class="img-circle user-img" />
+        <span>{{user.username}}</span>
+      </div>
+      <ul class="dropdown-menu">
+        <li>
+          <a ng-click="logout()" href="#">
+            <i class="fa fa-sign-out"></i> Log out
+          </a>
+        </li>
+      </ul>
+    </span>
+    <a href="/"><span id="logo"></span></a>
+  </div>
+  <ul ng-if="project" class="breadcrumb">
+    <li ng-if="project">
+    <a ui-sref="index.dashboard" href="#">Projects</a>
+    </li>
+    <li ng-if="project">
+    <a ui-sref="index.project_detail({ project_id: project.id })" href="#">{{project.title}}</a>
+    </li>
+    <li ng-if="project">
+    <a ui-sref="index.project_settings({ project_id: project.id })" title="Project Settings" href="#"><i class="fa fa-gear"></i></a>
+    </li>
+  </ul>
+  <div ui-view class="content-wrapper"></div>
+</div>
+
+<div ng-if="!authenticated">
+  <div class="middle-box text-center loginscreen animated fadeInDown">
+    <div>
+      <h3>Welcome to Spec'd</h3>
+      <p>
+        A tool for managing software projects.
+      </p>
+      <p>Login in to see your projects.</p>
+      <a ng-href="{{loginUrl}}" class="btn btn-primary btn-block" target="_self">
+        <i class="fa fa-github"></i>
+        Login or Create an Account
+      </a>
+    </div>
+  </div>
+</div>

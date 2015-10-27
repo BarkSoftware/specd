@@ -1,0 +1,30 @@
+<ng-file-drop
+  ng-model="files" // binds the dropped files to the scope model
+  ng-multiple="false" // default false, allows selecting multiple files.
+  ng-accept="'.png,.jpg,.gif'" // function or comma separated wildcard to filter files allowed
+  ng-model-rejected="rejectedFiles" // bind to dropped files that do not match the accept wildcard
+  allow-dir="true" // default true, allow dropping files only for Chrome webkit browser
+  drag-over-class="{accept:'acceptClass', reject:'rejectClass', delay:100}"
+  // drag over css class behaviour. could be a string, a function returning class name
+  // or a json object {accept: 'c1', reject: 'c2', delay:10}. default "dragover"
+  // reject class only works in Chrome.
+  drop-available="true" // set the value of scope model to true or false based on file
+  // drag&drop support for this browser
+  stop-propagation="false" // default false, whether to propagate drag/drop events.
+  hide-on-drop-not-available="false" // default false, hides element if file drag&drop is not supported
+  >
+  <textarea class="form-control" ng-model="editor.body" ng-blur="blurFn()" placeholder="Body"></textarea>
+  Attach images by dragging &amp; dropping or
+<a
+  style="cursor:pointer;"
+ng-file-select ng-model="files" // binds the selected files to the scope model
+ng-capture="'camera'" // allows mobile devices to capture using camera
+accept="'image/*'" // see standard HTML file input accept attribute
+ng-accept="'image/*'" // function or comma separated wildcard to filter files allowed
+ng-model-rejected="rejectedFiles" // bind to dropped files that do not match the accept wildcard
+>selecting them</a>
+</ng-file-drop>
+<progressbar class="progress-striped" ng-if="uploading" value="uploadProgress" type="success" max="100" animate="true"></progressbar>
+<div ng-if="showFileTypeError" style="color:red;">Sorry, we currently only support .png, .jpg, and .gif files</div>
+<div ng-if="fileUploadErrorMessage" style="color:red;">{{fileUploadErrorMessage}}</div>
+<ng-no-file-drop>File Drag/drop is not supported</ng-no-file-drop>

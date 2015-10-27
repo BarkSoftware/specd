@@ -1,0 +1,12 @@
+<h1>Import Existing GitHub Issue</h1>
+<p class="lead">Import existing GitHub issues by clicking Spec, Bug, or Question.</p>
+<ul class="list-group">
+  <li ng-repeat="i in issues" class="list-group-item clearfix">
+    <b>#{{i.number}}</b> {{i.title}}
+    <span class="btn-group pull-right">
+      <a ng-click="addSpec(i)" class="btn btn-xs btn-primary"><i class="fa fa-bullseye"></i> Spec</a>
+      <a ng-click="addBug(i)" class="btn btn-xs btn-danger"><i class="fa fa-bug"></i> Bug</a>
+      <a ng-click="addQuestion(i)" class="btn btn-xs btn-success"><i class="fa fa-question"></i> Question</a>
+    </span>
+  </li>
+</ul>

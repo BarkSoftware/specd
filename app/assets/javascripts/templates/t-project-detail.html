@@ -1,0 +1,17 @@
+<a id="activity-feed-button" ng-click="openActivity()"><i class="fa fa-rss"></i> Show Activity</a>
+<div id="activity-popout">
+  <button id="close-activity-button" type="button" ng-click="closeActivity()" class="btn btn-primary pull-left"><i class="fa fa-angle-double-right"></i> close</button>
+  <activity-feed project="project" condensed="true"></activity-feed>
+</div>
+<div id="kanban-wrapper">
+  <div id="kanban-flex">
+    <div ng-repeat="column in project.columns" class="kanban-column">
+      <h4>{{column.title}}</h4>
+      <new-issue ng-if="!column.closed" column="column"></new-issue>
+      <kanban-column column="column"></kanban-column>
+    </div>
+  </div>
+</div>
+
+<!-- for the issue details modal -->
+<div ui-view></div>

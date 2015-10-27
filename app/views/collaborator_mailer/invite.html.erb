@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>
+      <%= @owner.full_name %> has invited you to collaborate on a new project "<%= @project.title %>" using Spec'd.
+    </p>
+    <p>
+      To accept this invite, just click this link:
+      <a href="<%= @confirmation_url %>"><%= @confirmation_url %></a>
+    </p>
+  </body>
+</html>

@@ -1,0 +1,69 @@
+<div class="panel blank-panel">
+  <div class="panel-heading">
+    <div class="panel-title m-b-md"><h4>Project Settings</h4></div>
+    <div class="panel-options">
+      <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#tab-1"><i class="fa fa-group"></i> Collaborators</a></li>
+        <li class=""><a data-toggle="tab" href="#tab-2"><i class="fa fa-trash"></i> Archive Project</a></li>
+        <li class=""><a data-toggle="tab" href="#tab-3">more coming soon</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="panel-body">
+
+    <div class="tab-content">
+      <div id="tab-1" class="tab-pane active collaborators">
+        <div class="col-xs-12">
+          <ul>
+            <li><img class="img-circle" ng-src="{{owner.image}}" style="width:45px;margin-right:20px;" /> Owner {{owner.full_name}}</li>
+            <li ng-repeat="c in collaborators">
+              <img ng-if="c.image" class="img-circle" ng-src="{{c.image}}" style="width:45px;margin-right:20px;" />
+              {{c.type}} &middot; {{c.full_name}}
+              <a ng-click="delete($index, c)" href="#">remove</a>
+            </li>
+          </ul>
+          <h5>Invite Collaborators</h5>
+          <div class="alert alert-warning" ng-if="project.organization">
+            Make sure the person you're inviting is on the team that has access to this repository.
+            This must be done in Github.
+          </div>
+          <form class="form-inline">
+            <div class="form-group">
+              <select ng-disabled="loading" ng-model="newCollaborator.type" class="form-control input-sm">
+                <option value="Sponsor">Sponsor</option>
+                <option value="Developer">Developer</option>
+                <option value="Sponsor">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <input type="email" ng-disabled="{{loading}}" class="form-control input-sm" placeholder="Someone@example.com" ng-model="newCollaborator.email" />
+            </div>
+            <button class="btn btn-default" ng-disabled="loading" ng-click="invite()">
+              <i ng-if="!loading" class="glyphicon glyphicon-envelope"></i>
+              <i ng-if="loading" class="fa fa-cog fa-spin"></i>
+              Invite</button>
+          </form>
+        </div>
+      </div>
+
+      <div id="tab-2" class="tab-pane">
+        <p>
+          <button ng-if="!confirming" ng-click="archive()" class="btn btn-warning"><i class="glyphicon glyphicon-trash"></i> Archive Project</button>
+          <button ng-if="confirming" ng-click="confirmedArchive()" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i> Are you sure?</button>
+        </p>
+
+      </div>
+
+      <div id="tab-3" class="tab-pane">
+        <strong>coming soon</strong>
+        <p>
+          We should probably add the ability to manage project name, estimation settings, etc. from here.
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,28 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+<h1>New Project</h1>
+<div ng-if="loading"class="loading-box">
+  &hellip; creating your project
+</div>
+<form ng-if="!loading" ng-submit="create(project)" novalidate class="form">
+  <div class="form-group">
+    <repository-search></repository-search>
+  </div>
+  <div class="form-group">
+    <input ng-model="project.title" type="text" name="title" class="form-control" placeholder="Title" />
+  </div>
+  <div class="form-group">
+    <textarea ng-model="project.description" name="description" class="form-control" placeholder="Description"></textarea>
+  </div>
+  <div class="form-group">
+    <label>To help us better serve you &hellip;</label>
+    <tags-input ng-model="project.tags" min-length="1" placeholder="Languages: Ruby, C#, Python, etc.">
+      <auto-complete source="getTags($query)" min-length="1"></auto-complete>
+    </tags-input>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Create</button>
+  </div>
+</form>
+</div>
+</div>

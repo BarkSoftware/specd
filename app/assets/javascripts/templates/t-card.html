@@ -1,0 +1,92 @@
+<div class="modal-header">
+  <button type="button" ng-click="done()" class="close"><span aria-hidden="true">&times;</span></button>
+  <div ng-if="!issue.editingTitle">
+    <h3 class="modal-title">
+      <i class="fa fa-bullseye"></i>
+      <span class="card-title" ng-click="editIssueTitle(issue)">{{issue.github.title}}</span>
+    </h3>
+  </div>
+  <div ng-if="issue.editingTitle">
+    <div class="form-group">
+      <input ng-blur="updateIssue(issue)" ng-keyup="$event.keyCode == 13 && updateIssue(issue)" ng-model="issue.github.title" class="form-control card-title-input" />
+    </div>
+  </div>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="col-sm-12">
+      <div ng-if="!issue.editingDescription" class="issue">
+        <p class="card-description" ng-click="editIssueDescription(issue)"><span ng-bind-html="issue.github.html"></span></p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div ng-if="issue.github.assignee" class="col-xs-12">
+      <img ng-src="{{issue.github.assignee.avatar_url}}" class="user-img img-circle" />
+      <a href="#" ng-click="clearAssignee(issue)" class="btn btn-xs">clear assignee</a>
+    </div>
+    <div ng-if="!issue.github.assignee" class="col-xs-12">
+      <assignee-search assignees="assignees"></assignee-search>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 help-block">
+      <span ng-if="issue.github.state=='open'" class="label label-success">open</span>
+      <span ng-if="issue.github.state=='closed'" class="label label-danger"><i class="fa fa-check-square-o"></i> closed</span>
+      &middot;
+      {{issue.github.user.login}} &middot; created <span am-time-ago="issue.github.created_at"></span>
+      &middot;
+      <a ng-href="{{issue.github.html_url}}" target="_blank"><i class="fa fa-github"></i> Github</a>
+      <div ng-repeat="l in issue.github.labels" style="display:inline;" ng-if="issue.github.labels.length">
+        &middot;
+        <span class="label" ng-style="l.style">
+          {{l.name}}
+        </span>
+      </div>
+    </div>
+    <div ng-if="issue.editingDescription">
+      <div class="form-group card-description-editor">
+        <comment-editor blur-fn="updateIssue(issue)" comment="issue.github"></comment-editor>
+      </div>
+    </div>
+  </div>
+  <div ng-repeat="c in comments" class="row comment">
+    <div class="col-xs-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <img ng-src="{{c.user.avatar_url}}" class="user-img img-circle" />
+          <span class="hidden-xs">{{c.user.login}}</span>
+          &middot;
+          <span am-time-ago="c.created_at"></span>
+          <button ng-click="editComment(c)" class="btn btn-default btn-xs pull-right"><i class="fa fa-pencil"></i></button>
+        </div>
+        <div class="panel-body">
+          <div ng-if="!c.editing">
+            <p><span ng-bind-html="c.html"></span></p>
+          </div>
+          <div ng-if="c.editing">
+            <div class="form-group">
+              <comment-editor comment="c"></comment-editor>
+            </div>
+            <button ng-click="updateComment(c)" class="btn btn-primary btn-xs">Update</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <form novalidate class="form">
+        <div class="form-group">
+          <label>Leave a Comment</label>
+          <comment-editor comment="comment"></comment-editor>
+        </div>
+        <div class="btn-group pull-right">
+          <button ng-if="issue.github.state == 'closed'" class="btn btn-success" ng-click="reopenIssue(issue, comment)">Reopen</button>
+          <button ng-click="createComment(comment)" type="submit" class="btn btn-primary">Comment</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="light-background clearfix">
+  <h5 class="text-center">Activity Feed</h5>
+  <a ng-if="condensed" ui-sref="index.activity_feed({ project_id: project.id })">view all activity</a>
+  <div ng-if="!condensed" class="btn-group">
+    <button disabled class="btn btn-default btn-sm" type="button"><i class="fa fa-filter"></i> Filter: </button>
+    <button ng-click="filterComments()" class="btn btn-default btn-sm comment-filter-button" type="button"><i class="fa fa-comment"></i></button>
+    <button ng-click="filterSpecs()" class="btn btn-default btn-sm spec-filter-button" type="button"><i class="fa fa-bullseye"></i></button>
+    <button ng-click="filterQuestions()" class="btn btn-default btn-sm question-filter-button" type="button"><i class="fa fa-question"></i></button>
+    <button ng-click="filterBugs()" class="btn btn-default btn-sm bug-filter-button" type="button"><i class="fa fa-bug"></i></button>
+    <button ng-click="removeFilter()" class="btn btn-default btn-sm" type="button"><i class="fa fa-close"></i> remove filter</button>
+  </div>
+  <div ng-click="navigateTo(e)" ng-repeat="e in events" ng-if="e.feed_settings.title" class="activity-item clearfix">
+    <div class="col-xs-12">
+      <img style="margin-right: 5px;" class="user-img img-circle pull-left" ng-src="{{e.actor.avatar_url}}" />
+      <strong>{{e.actor.login}} {{e.feed_settings.title}}</strong>
+      <p class="event-body" btf-markdown="e.feed_settings.body"></p>
+      <small class="help-block text-right"><span am-time-ago="e.created_at"></span></small>
+    </div>
+  </div>
+</div>

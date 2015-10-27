@@ -1,0 +1,13 @@
+{
+  "name": "specd",
+    "version": "1.0.0",
+    "dependencies": {
+      "bower": "1.4.1"
+    },
+    "engine": {
+      "node": "4.0.0",
+      "npm": "*"
+    },
+    "scripts": {
+    }
+}
