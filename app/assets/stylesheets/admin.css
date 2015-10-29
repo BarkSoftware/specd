@@ -9,6 +9,7 @@
 body {
   background-color: #2980B9;
 }
+.project-list { margin-top: 15px; }
 .activity-item {
   padding-top: 8px;
 }

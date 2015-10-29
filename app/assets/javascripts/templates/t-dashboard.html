@@ -1,72 +1,12 @@
-<div class="panel panel-default">
+<div class="panel panel-default project-list" style="margin-top: 15px;">
   <div class="panel-body">
-<div class="vertical-spacer">
-  <a class="btn btn-primary btn-xs" ui-sref="index.new_project">
-    <i class="fa fa-plus"></i> New Project
-  </a>
-</div>
-<table class="table table-hover">
-  <tbody>
-    <tr ng-repeat="p in projects" ng-click="openProject(p)" class="project-row">
-      <td class="project-status">
-        <span ng-if="!p.archived" class="label label-primary">Active</span>
-        <span ng-if="p.archived" class="label label-danger">Archived</span>
-      </td>
-      <td class="project-title">
-        <a ui-sref="index.project_detail({ project_id: p.id })">{{p.title}}</a>
-        <br>
-        <small>Created {{p.created_at | amDateFormat:'MM.DD.YYYY'}}</small>
-      </td>
-      <td class="project-completion">
-        <small>Completion with: {{p.completion_percent}}%</small>
-        <div class="progress progress-mini">
-          <div style="width: 48%;" class="progress-bar"></div>
-        </div>
-      </td>
-      <td class="project-people">
-        <img ng-alt="{{p.owner.full_name}}" ng-src="{{p.owner.image}}" class="img-circle user-img" />
-        <span ng-repeat="c in p.collaborators">
-          <img ng-alt="{{c.full_name}}" ng-src="{{c.image}}" class="img-circle user-img" />
-        </span>
-      </td>
-      <td class="project-actions">
-        <a ng-if="p.archived" class="btn btn-white btn-sm" ng-click="unarchive(p); $event.stopPropagation();">un-archive</a>
-        <a class="btn btn-white btn-sm" ui-sref="index.project_detail({ project_id: p.id })"><i class="fa fa-folder"></i> View</a>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<h5>Archived Projects</h5>
-<table class="table table-hover">
-  <tbody>
-    <tr ng-repeat="p in archivedProjects" ng-click="openProject(p)" class="project-row">
-      <td class="project-status">
-        <span ng-if="!p.archived" class="label label-primary">Active</span>
-        <span ng-if="p.archived" class="label label-danger">Archived</span>
-      </td>
-      <td class="project-title">
-        <a ui-sref="index.project_detail({ project_id: p.id })">{{p.title}}</a>
-        <br>
-        <small>Created {{p.created_at | amDateFormat:'MM.DD.YYYY'}}</small>
-      </td>
-      <td class="project-completion">
-        <small>Completion with: {{p.completion_percent}}%</small>
-        <div class="progress progress-mini">
-          <div style="width: 48%;" class="progress-bar"></div>
-        </div>
-      </td>
-      <td class="project-people">
-        <img ng-alt="{{p.owner.full_name}}" ng-src="{{p.owner.image}}" class="img-circle user-img" />
-        <span ng-repeat="c in p.collaborators">
-          <img ng-alt="{{c.full_name}}" ng-src="{{c.image}}" class="img-circle user-img" />
-        </span>
-      </td>
-      <td class="project-actions">
-        <a ng-if="p.archived" class="btn btn-white btn-sm" ng-click="unarchive(p); $event.stopPropagation();">un-archive</a>
-        <a class="btn btn-white btn-sm" ui-sref="index.project_detail({ project_id: p.id })"><i class="fa fa-folder"></i> View</a>
-      </td>
-    </tr>
-  </tbody>
-</table>
-</div>
+    <div class="vertical-spacer">
+      <a class="btn btn-primary btn-xs" ui-sref="index.new_project">
+        <i class="fa fa-plus"></i> New Project
+      </a>
+    </div>
+    <project-list projects="projects"></project-list>
+    <h5>Archived Projects</h5>
+    <project-list projects="archivedProjects"></project-list>
+  </div>
 </div>

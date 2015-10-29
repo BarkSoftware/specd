@@ -14,14 +14,5 @@ specd.app.controller('DashboardController', [
         $scope.archivedProjects = _.filter(projects, function(p) { return p.archived });
       });
       project.list();
-
-      $scope.openProject = function(p) {
-        $state.transitionTo('index.project_detail', { project_id: p.id });
-      };
-
-      $scope.unarchive = function(p) {
-        project.unarchive(p);
-        p.archived = false;
-      };
     }
 ]);
