@@ -16,7 +16,6 @@ gem 'faraday'
 gem 'devise'
 gem 'omniauth-github'
 gem 'rails_12factor', group: :production
-gem 'rack-cors', require: 'rack/cors'
 gem 'rack-rewrite'
 gem 'link_header'
 gem 'andand'

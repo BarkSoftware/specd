@@ -138,7 +138,6 @@ GEM
     pry-rails (0.3.4)
       pry (>= 0.9.10)
     rack (1.5.5)
-    rack-cors (0.4.0)
     rack-rewrite (1.5.1)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -260,7 +259,6 @@ DEPENDENCIES
   pg
   pinglish
   pry-rails
-  rack-cors
   rack-rewrite
   rails (= 4.1.4)
   rails_12factor

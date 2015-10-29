@@ -22,13 +22,6 @@ module Specd
 
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
 
-    config.middleware.insert_before 0, "Rack::Cors" do
-      allow do
-        origins 'localhost:5000', 'specd-web.herokuapp.com', 'specd.io', 'www.specd.io'
-        resource '*', headers: :any, methods: [:get, :put, :delete, :post, :patch]
-      end
-    end
-
     config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
       # redirect old urls
       r301      %r{/client/(.*)},    '/$1'
