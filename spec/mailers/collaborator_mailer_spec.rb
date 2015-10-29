@@ -42,8 +42,7 @@ RSpec.describe CollaboratorMailer do
     end
 
     it 'includes confirmation link' do
-      confirm_url = "https://specd.io/client/collaborators/confirm" \
-                    "/#{collaborator.invite_token}"
+      confirm_url = "/collaborators/confirm/#{collaborator.invite_token}"
       expect(mail.body.encoded).to include(confirm_url)
     end
   end

@@ -28,6 +28,12 @@ module Specd
         resource '*', headers: :any, methods: [:get, :put, :delete, :post, :patch]
       end
     end
+
+    config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
+      # redirect old urls
+      r301      %r{/client/(.*)},    '/$1'
+    end
+
     ActiveSupport::JSON::Encoding.encode_big_decimal_as_string = false
 
     config.angular_templates.ignore_prefix = []

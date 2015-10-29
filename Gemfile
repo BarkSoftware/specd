@@ -17,6 +17,7 @@ gem 'devise'
 gem 'omniauth-github'
 gem 'rails_12factor', group: :production
 gem 'rack-cors', require: 'rack/cors'
+gem 'rack-rewrite'
 gem 'link_header'
 gem 'andand'
 gem 'bootstrap-sass', '~> 3.3.5'

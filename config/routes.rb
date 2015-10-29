@@ -36,4 +36,5 @@ Rails.application.routes.draw do
   get '/', to: 'application#index'
   get '/p/*all', to: 'application#index'
   get '/new-project', to: 'application#index'
+  get '/collaborators/*', to: 'application#index'
 end

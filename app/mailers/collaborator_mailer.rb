@@ -14,6 +14,6 @@ class CollaboratorMailer < ActionMailer::Base
   attr_accessor :collaborator
 
   def confirmation_url
-    "https://specd.io/client/collaborators/confirm/#{collaborator.invite_token}"
+    "https://specd.io/collaborators/confirm/#{collaborator.invite_token}"
   end
 end

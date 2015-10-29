@@ -139,6 +139,7 @@ GEM
       pry (>= 0.9.10)
     rack (1.5.5)
     rack-cors (0.4.0)
+    rack-rewrite (1.5.1)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.1.4)
@@ -260,6 +261,7 @@ DEPENDENCIES
   pinglish
   pry-rails
   rack-cors
+  rack-rewrite
   rails (= 4.1.4)
   rails_12factor
   rollbar (~> 1.2.7)
@@ -272,3 +274,6 @@ DEPENDENCIES
   spring
   uglifier (>= 1.3.0)
   webmock
+
+BUNDLED WITH
+   1.10.6
