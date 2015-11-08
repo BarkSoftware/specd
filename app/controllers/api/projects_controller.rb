@@ -3,7 +3,7 @@ module Api
     def show
       project = Project.find(params[:id])
       authorize! :read, project
-      WebhookCorrecter.new(current_user, project).correct
+      WebhookCorrector.new(current_user, project).correct
       render json: project, status: 200
     end
 

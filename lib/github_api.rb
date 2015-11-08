@@ -7,12 +7,16 @@ class GithubApi
   attr_accessor :response
 
   def get url
-    @response = conn.get url
+    get_response url
     JSON.parse(response.body, symbolize_names: true).tap do |result|
       if result.kind_of?(Array)
         page_to_end_of_results result
       end
     end
+  end
+
+  def get_response url
+    @response = conn.get url
   end
 
   def put url, data = {}
