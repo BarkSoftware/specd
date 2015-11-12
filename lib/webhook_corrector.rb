@@ -1,4 +1,4 @@
-class WebhookCorrecter
+class WebhookCorrector
   def initialize current_user, project
     @current_user = current_user
     @project = project
@@ -7,7 +7,9 @@ class WebhookCorrecter
   attr_reader :current_user, :project
 
   def correct
-    InitProjectWebhook.new(current_user, project).init_webhook if webhook_missing?
+    if webhooks_response.success?
+      InitProjectWebhook.new(current_user, project).init_webhook if webhook_missing?
+    end
   end
 
   def webhook_missing?
@@ -17,7 +19,11 @@ class WebhookCorrecter
   end
 
   def existing_webhooks
-    @existing_webhooks ||= api.get webhooks_url
+    JSON.parse(webhooks_response.body, symbolize_names: true)
+  end
+
+  def webhooks_response
+    @webhooks_response ||= api.get_response webhooks_url
   end
 
   def webhooks_url
