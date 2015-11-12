@@ -30,7 +30,7 @@ function($scope, github, $state) {
 
   function getActivityGithub(project, memo, next) {
     if (!memo) { memo = []; }
-    var url = project.url + getActivityPath;
+    var url = project.github.url + getActivityPath;
     if (next) { url = next; }
     return github.get(url).then(function(response) {
       memo = memo.concat(response.data);

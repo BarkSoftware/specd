@@ -22,11 +22,8 @@ specd.app.factory('specd.project', ['$http', 'specd.github', '$rootScope', funct
     },
     get: function(id) {
       return $http.get(apiUrl + "/projects/" + id).then(function(res) {
-        var project = res.data.project;
-        return github.get(project.github_repository).then(function(res) {
-          currentProject = $.extend(res.data, project);
-          return currentProject;
-        });
+        currentProject = res.data.project;
+        return res.data.project;
       });
     },
     create: function(project) {

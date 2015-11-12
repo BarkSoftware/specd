@@ -29,6 +29,17 @@
       <assignee-search assignees="assignees"></assignee-search>
     </div>
   </div>
+  <div class="row hidden-lg hidden-md">
+    <div class="form-group col-xs-12">
+      <label>Column:</label>
+      <select
+        ng-options="column as column.title for column in board.columns"
+        ng-model="selectedColumn"
+        ng-change="moveToColumn()"
+        >
+      </select>
+    </div>
+  </div>
   <div class="row">
     <div class="col-xs-12 help-block">
       <span ng-if="issue.github.state=='open'" class="label label-success">open</span>

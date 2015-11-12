@@ -10,6 +10,10 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
+//= require jquery-ui
+//= require moment
+//= require lodash
 //= require bootstrap-sprockets
 //= require typeahead.js/dist/bloodhound.js
 //= require typeahead.js/dist/typeahead.bundle.js
@@ -28,4 +32,5 @@
 //= require ./ui-bootstrap-tpls-0.12.0.min.js
 //= require ./index.js
 //= require_tree ./templates
+//= require angular-ui-sortable
 //= require_tree .

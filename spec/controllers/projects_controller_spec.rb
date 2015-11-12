@@ -114,5 +114,9 @@ RSpec.describe Api::ProjectsController, type: :controller do
         expect(json[:project][:columns]).to include(include(expected_hash))
       end
     end
+
+    it 'includes the github data' do
+      expect(json[:project][:github]).to eq get_repository_json
+    end
   end
 end

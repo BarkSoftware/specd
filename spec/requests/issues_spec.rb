@@ -33,6 +33,12 @@ RSpec.describe 'issues requests', type: :request do
       get "/api/projects/#{issue.project.id}/issues/#{issue.number}"
       expect(response.body).to include('Hours')
     end
+
+    it 'includes the column id' do
+      get api_issue_path(issue)
+      json = JSON.parse(response.body, symbolize_names: true)
+      expect(json[:issue][:column_id]).to eq(issue.column.id)
+    end
   end
 
   describe '#update' do

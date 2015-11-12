@@ -5,7 +5,8 @@ specd.app.controller('ProjectDetailsController', [
   '$stateParams',
   '$state',
   '$modal',
-function($scope, services, github, $stateParams, $state, $modal) {
+  'specd.board',
+function($scope, services, github, $stateParams, $state, $modal, board) {
   $scope.closeActivity = function() {
     $('#activity-popout').hide();
   }
@@ -18,6 +19,7 @@ function($scope, services, github, $stateParams, $state, $modal) {
   ];
 
   services.project.get($stateParams.project_id).then(function(project) {
+    board.columns = project.columns;
     $scope.project = project;
   });
 

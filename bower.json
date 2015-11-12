@@ -7,6 +7,7 @@
   "vendor": {
     "name": "vendor assets for Spec'd",
     "dependencies": {
+      "jquery": "1.11.3",
       "angular": "1.4.5",
       "bootstrap": "~3.3.1",
       "angular-ui-router": "~0.2.11",
@@ -15,7 +16,14 @@
       "angular-moment": "~0.9.0",
       "ng-file-upload": "~3.2.4",
       "angular-markdown-directive": "~0.3.1",
-      "angular-perfect-scrollbar": "~0.0.4"
+      "angular-perfect-scrollbar": "~0.0.4",
+      "jquery-ui": "1.11.2",
+      "angular-ui-sortable": "0.13.3",
+      "moment": "2.8.4",
+      "lodash": "2.4.1",
+      "angular-mocks": "*",
+      "sinon": "*",
+      "jasmine-sinon": "*"
     },
     "resolutions": {
       "angular": "1.4.5"
