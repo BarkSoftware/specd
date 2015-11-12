@@ -5,7 +5,8 @@ class IssueSerializer < ActiveModel::Serializer
              :project_id,
              :estimate,
              :estimate_type,
-             :github
+             :github,
+             :column_id
 
   def estimate_type
     project.estimate_type

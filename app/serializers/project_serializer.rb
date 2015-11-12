@@ -10,7 +10,12 @@ class ProjectSerializer < ActiveModel::Serializer
               :created_at,
               :columns,
               :archived,
-              :completion_percent
+              :completion_percent,
+              :github
+
+  def github
+    object.github_data scope
+  end
 
   def owner
     object.user

@@ -50,6 +50,7 @@ module Api
         estimate: params[:estimate] || params[:issue].andand[:estimate],
         issue_type: params[:issue_type] || params[:issue].andand[:issue_type],
         kanban_sort: (column.issues.minimum(:kanban_sort) || 0) - 1,
+        column_id: params[:issue].andand[:column_id],
       }.reject { |_, v| v.blank? }
     end
 
