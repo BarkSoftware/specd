@@ -15,7 +15,7 @@ function($scope, services, $modalInstance, project, issue_number, $state, $timeo
     $state.transitionTo('index.project_detail', { project_id: project.id });
   }
 
-  $scope.project = board;
+  $scope.project = project;
   $scope.board = board;
   $scope.clearAssignee = function() {
     $scope.issue.github.assignee = null;
