@@ -1,16 +1,10 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
-
-# Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-
-# Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 gem 'execjs'
-gem 'pg'
 gem 'settingslogic'
 gem 'faraday'
 gem 'devise'
@@ -21,12 +15,14 @@ gem 'link_header'
 gem 'andand'
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'sass-rails', '>= 3.2'
-gem 'pinglish'
 gem 'angular-rails-templates'
 gem "jasmine", github: "pivotal/jasmine-gem"
 
-# error logging
+# infra-specific things to move away from here once we have specd in a rails engine
 gem 'rollbar', '~> 1.2.7'
+gem 'puma'
+gem 'pinglish'
+gem 'pg'
 
 # s3 file uploads
 gem 'aws-sdk', '~> 1'

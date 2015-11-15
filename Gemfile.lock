@@ -149,6 +149,7 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
+    puma (2.15.3)
     rack (1.5.5)
     rack-rewrite (1.5.1)
     rack-test (0.6.3)
@@ -272,6 +273,7 @@ DEPENDENCIES
   pg
   pinglish
   pry-rails
+  puma
   rack-rewrite
   rails (= 4.1.4)
   rails_12factor
