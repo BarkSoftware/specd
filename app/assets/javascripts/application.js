@@ -29,6 +29,7 @@
 //= require perfect-scrollbar/src/perfect-scrollbar.js
 //= require angular-perfect-scrollbar/src/angular-perfect-scrollbar.js
 //= require angular-rails-templates
+//= require angular-google-analytics
 //= require ./ui-bootstrap-tpls-0.12.0.min.js
 //= require ./index.js
 //= require_tree ./templates

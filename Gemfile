@@ -9,7 +9,6 @@ gem 'settingslogic'
 gem 'faraday'
 gem 'devise'
 gem 'omniauth-github'
-gem 'rails_12factor', group: :production
 gem 'rack-rewrite'
 gem 'link_header'
 gem 'andand'
@@ -17,15 +16,11 @@ gem 'bootstrap-sass', '~> 3.3.5'
 gem 'sass-rails', '>= 3.2'
 gem 'angular-rails-templates'
 gem "jasmine", github: "pivotal/jasmine-gem"
-
-# infra-specific things to move away from here once we have specd in a rails engine
-gem 'rollbar', '~> 1.2.7'
-gem 'puma'
-gem 'pinglish'
 gem 'pg'
 
 # s3 file uploads
 gem 'aws-sdk', '~> 1'
+gem 'pinglish'
 
 # because I want decimals to render as JSON Numbers
 gem 'activesupport-json_encoder'
@@ -45,6 +40,11 @@ gem 'active_model_serializers'
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 gem 'cancan'
+group :production do
+  gem 'rails_12factor', group: :production
+  gem 'puma'
+  gem 'rollbar', '~> 1.2.7'
+end
 group :development, :test do
   gem 'rubocop', require: false
   gem 'rubocop-rspec'

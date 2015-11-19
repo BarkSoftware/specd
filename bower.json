@@ -23,7 +23,8 @@
       "lodash": "2.4.1",
       "angular-mocks": "*",
       "sinon": "*",
-      "jasmine-sinon": "*"
+      "jasmine-sinon": "*",
+      "angular-google-analytics": "*"
     },
     "resolutions": {
       "angular": "1.4.5"
