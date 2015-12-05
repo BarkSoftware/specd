@@ -13,3 +13,5 @@ This project is under development right now. If there's something you want out o
 License
 =======
 Spec'd is released under the Apache license. See the license.md file for details.
+
+See https://specd.com for other details or hosted options
