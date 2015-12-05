@@ -17,4 +17,4 @@ License
 =======
 Spec'd is released under the Apache license. See the license.md file for details.
 
-See https://specd.com for other details or hosted options
+See https://specd.io for other details or hosted options
