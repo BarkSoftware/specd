@@ -1,3 +1,6 @@
+Kanban for GitHub Issues
+========================
+![Image of Spec'd](https://specd.io/specd.gif)
 SETUP
 =====
 It's just a rails app, but you'll need to do a few things to get setup.
