@@ -1,3 +1,6 @@
+Kanban for GitHub Issues
+========================
+![Image of Spec'd](https://specd.io/specd.gif)
 SETUP
 =====
 It's just a rails app, but you'll need to do a few things to get setup.
@@ -13,3 +16,5 @@ This project is under development right now. If there's something you want out o
 License
 =======
 Spec'd is released under the Apache license. See the license.md file for details.
+
+See https://specd.io for other details or hosted options
