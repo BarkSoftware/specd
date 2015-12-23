@@ -93,7 +93,7 @@ body {
   height: 30px;
 }
 #logo {
-  background-image: url(/logo-blue.png);
+  background-image: url(/logo-blue.png?v=20151222);
   background-repeat: no-repeat;
   display: block;
   height: 30px;
